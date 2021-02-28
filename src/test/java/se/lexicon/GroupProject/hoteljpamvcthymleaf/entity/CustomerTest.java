@@ -9,8 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
     Customer testObject;
+
     @BeforeEach
     void setUp() {
+
         testObject = new Customer("Negar", "Madadi", "negar.madadi@gmail.com", LocalDate.of(2021,1,1));
     }
 
