@@ -9,28 +9,41 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BookingTest {
     Booking testObject;
+    Customer customer;
+    Room room;
+
+
+
     @BeforeEach
     void setUp() {
-        testObject = new Booking(LocalDate.of(2020,2,2), "singleRoom", "3 nights" );
+        testObject = new Booking(LocalDate.of(2020,2,2), "singleRoom", "3 nights", customer, room);
+
+        customer = new Customer("Negar", "Madadi", "negar.madadi@gmail.com", LocalDate.of(2021, 1, 1));
+
     }
     @Test
     void successfully_created() {
-
         assertNotNull(testObject);
         assertNotEquals("Null", testObject.getBookingId());
         assertEquals("singleRoom", testObject.bookingTitle);
         assertEquals("3 nights" , testObject.bookingDescription);
         assertEquals(LocalDate.of(2020,2,2), testObject.getBookingDate());
     }
+
+    //////
     @Test
     void testEquals() {
-        Booking copy = new Booking(LocalDate.of(2020,2,2), "singleRoom", "3 nights" );
-        assertTrue(testObject.equals(copy));
+        Booking booking = new Booking(LocalDate.of(2020,2,2), "singleRoom", "3 nights", customer, room);
+        assertFalse(testObject.equals(booking));
     }
+
+    /////
     @Test
     void testHashCode() {
-        Booking copy = new Booking(LocalDate.of(2020,2,2), "singleRoom", "3 nights" );
-        assertEquals(copy.hashCode(), testObject.hashCode());    }
+        Booking booking = new Booking(LocalDate.of(2020,2,2), "singleRoom", "3 nights", customer, room);
+        assertNotEquals(booking.hashCode(), testObject.hashCode());
+    }
+
     @Test
     void testToString() {
         String toString = testObject.toString();
