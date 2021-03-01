@@ -20,6 +20,14 @@ public class Customer {
     private String customerLastName;
     private String customerEmail;
     private LocalDate bookingDate;
+    private boolean available;
+
+    public void setAvailable(boolean availableStatus) {
+        this.available = availableStatus;
+    }
+    public boolean isAvailable() {
+        return available;
+    }
 
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookingList;

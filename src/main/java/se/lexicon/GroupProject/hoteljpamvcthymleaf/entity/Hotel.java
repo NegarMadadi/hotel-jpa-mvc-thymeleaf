@@ -17,6 +17,11 @@ public class Hotel {
     public String hotelType;
     public String hotelAddress;
     public String hotelDescription;
+    private boolean available;
+
+    public void setAvailable(boolean availableStatus) {
+        this.available = availableStatus;
+    }
 
     @OneToMany(mappedBy = "hotel")
     private List<Room> roomList;
@@ -43,6 +48,10 @@ public class Hotel {
         setHotelType(hotelType);
         setHotelAddress(hotelAddress);
         setHotelDescription(hotelDescription);
+    }
+
+    public boolean isAvailable(){
+        return available;
     }
 
     public String getHotelId() {
