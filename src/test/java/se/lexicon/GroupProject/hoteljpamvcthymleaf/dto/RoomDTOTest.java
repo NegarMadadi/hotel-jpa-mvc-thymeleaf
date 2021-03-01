@@ -30,7 +30,7 @@ class RoomDTOTest {
     }
 
     @Test
-    void if_convert_book_to_bookDto() {
+    void if_convert_room_to_roomDto() {
         assertEquals(firstRoom.getRoomId(), firstRoomDTO.getRoomId());
         assertEquals(firstRoom.getRoomType(), firstRoomDTO.getRoomType());
         assertEquals(firstRoom.getRoomNumber(), firstRoomDTO.getRoomNumber());
@@ -38,7 +38,7 @@ class RoomDTOTest {
     }
 
     @Test
-    void if_covert_book_list_to_bookDto_list() {
+    void if_covert_room_list_to_roomDto_list() {
         secondRoom = new Room("100", "Single", "Such a nice room");
         List<Room> roomList = new ArrayList<>();
         roomList.add(firstRoom);
