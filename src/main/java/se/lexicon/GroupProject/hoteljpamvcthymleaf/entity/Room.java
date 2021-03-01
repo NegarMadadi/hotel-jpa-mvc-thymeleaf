@@ -1,15 +1,27 @@
 package se.lexicon.GroupProject.hoteljpamvcthymleaf.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Room {
 
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
     private String roomId;
     private String roomNumber;
     private String roomType;
     private String roomDescription;
+
+    @OneToMany(mappedBy = "room")
     private List<Booking> bookingList;
+
+    @ManyToOne(cascade ={CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "hotelId")
     private Hotel hotel;
 
 

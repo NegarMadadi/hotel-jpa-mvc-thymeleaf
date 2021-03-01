@@ -1,15 +1,33 @@
 package se.lexicon.GroupProject.hoteljpamvcthymleaf.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
+
+@Entity
 public class Booking {
 
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     public String bookingId;
+
     public LocalDate bookingDate;
     public String bookingTitle;
     public String bookingDescription;
+
+   // @OneToMany(cascade ={CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+   // @JoinColumn(name = "customerId")
+
+    @ManyToOne(cascade ={CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "customerId")
     private Customer customer;
+
+    @ManyToOne(cascade ={CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "roomId")
     private Room room;
 
 

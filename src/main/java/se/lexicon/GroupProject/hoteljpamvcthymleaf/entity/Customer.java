@@ -1,16 +1,27 @@
 package se.lexicon.GroupProject.hoteljpamvcthymleaf.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+
+import javax.annotation.sql.DataSourceDefinition;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Customer {
 
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String customerId;
     private String customerFirstName;
     private String customerLastName;
     private String customerEmail;
     private LocalDate bookingDate;
+
+    @OneToMany(mappedBy = "customer")
     private List<Booking> bookingList;
 
 

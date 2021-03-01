@@ -1,14 +1,24 @@
 package se.lexicon.GroupProject.hoteljpamvcthymleaf.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Hotel {
+
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 
     public String hotelId;
     public String hotelType;
     public String hotelAddress;
     public String hotelDescription;
+
+    @OneToMany(mappedBy = "hotel")
     private List<Room> roomList;
 
 
@@ -22,11 +32,17 @@ public class Hotel {
         this.roomList = roomList;
     }
 
+    //this ===> set
     public Hotel(String hotelType, String hotelAddress, String hotelDescription) {
+        /*
         this.hotelType = hotelType;
         this.hotelAddress = hotelAddress;
         this.hotelDescription = hotelDescription;
-        this.roomList = roomList;
+
+         */
+        setHotelType(hotelType);
+        setHotelAddress(hotelAddress);
+        setHotelDescription(hotelDescription);
     }
 
     public String getHotelId() {
