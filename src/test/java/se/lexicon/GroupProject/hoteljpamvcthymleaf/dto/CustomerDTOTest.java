@@ -30,13 +30,13 @@ class CustomerDTOTest {
     }
 
     @Test
-    void if_converts_List_of_books_to_List_of_bookDTOs() {
+    void if_converts_List_of_customer_to_List_of_customerDTOs() {
         List<CustomerDTO> libraryUserDTOs = CustomerDTO.toCustomerDto(customerList);
         assertEquals(customerList.size(), libraryUserDTOs.size());
     }
 
     @Test
-    void if_convert_libraryUser_toLibraryUserDto() {
+    void if_convert_Customer_toCustomerDto() {
         assertEquals(firstCustomer.getCustomerId(), customerDTO.getCustomerId());
         assertEquals(firstCustomer.getCustomerFirstName(), customerDTO.getFirstName());
         assertEquals(firstCustomer.getCustomerLastName(), customerDTO.getLastName());
