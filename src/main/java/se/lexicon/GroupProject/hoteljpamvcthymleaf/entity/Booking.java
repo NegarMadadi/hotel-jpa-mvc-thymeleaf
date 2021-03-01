@@ -42,14 +42,14 @@ public class Booking {
         this.room = room;
     }
 
-    /*
-    public Booking(LocalDate bookingDate, String bookingTitle, String bookingDescription,) {
+
+    public Booking(LocalDate bookingDate, String bookingTitle, String bookingDescription) {
         setBookingDate(bookingDate);
         setBookingTitle(bookingTitle);
         setBookingDescription(bookingDescription);
+
     }
 
- */
 
     public String getBookingId() {
         return bookingId;
