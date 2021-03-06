@@ -43,7 +43,7 @@ class RoomDTOTest {
         List<Room> roomList = new ArrayList<>();
         roomList.add(firstRoom);
         roomList.add(secondRoom);
-        List<RoomDTO> bookDtoList = RoomDTO.toRoomDto(roomList);
-        assertEquals(roomList.size(), bookDtoList.size());
+        List<RoomDTO> roomDtoList = RoomDTO.toRoomDto(roomList);
+        assertEquals(roomList.size(), roomDtoList.size());
     }
 }

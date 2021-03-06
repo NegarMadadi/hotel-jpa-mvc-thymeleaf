@@ -15,15 +15,16 @@ class CustomerDTOTest {
     Customer firstCustomer;
     Customer secondCustomer;
     List<Customer> customerList;
-    CustomerDTO customerDTO;
+    CustomerDTO customerDTO1;
+    CustomerDTO customerDTO2;
 
     @BeforeEach
     void setUp() {
 
         firstCustomer = new Customer("Negar", "Madadi", "negar.madadi@gmail.com", LocalDate.of(2021, 1, 1));
         secondCustomer = new Customer("Lena", "Sadr", "LenaSadr@gmail.com", LocalDate.of(2021, 03, 1));
-        customerDTO = new CustomerDTO(firstCustomer);
-       // customerDTO = new CustomerDTO(secondCustomer);
+        customerDTO1 = new CustomerDTO(firstCustomer);
+        customerDTO2 = new CustomerDTO(secondCustomer);
         customerList = new ArrayList<>();
         customerList.add(firstCustomer);
         customerList.add(secondCustomer);
@@ -37,12 +38,10 @@ class CustomerDTOTest {
 
     @Test
     void if_convert_Customer_toCustomerDto() {
-        assertEquals(firstCustomer.getCustomerId(), customerDTO.getCustomerId());
-        assertEquals(firstCustomer.getCustomerFirstName(), customerDTO.getFirstName());
-        assertEquals(firstCustomer.getCustomerLastName(), customerDTO.getLastName());
-        assertEquals(firstCustomer.getCustomerEmail(), customerDTO.getEmail());
-
-
-       // assertEquals(secondCustomer.getCustomerLastName(), customerDTO.getLastName());
+        assertEquals(firstCustomer.getCustomerId(), customerDTO1.getCustomerId());
+        assertEquals(firstCustomer.getCustomerFirstName(), customerDTO1.getFirstName());
+        assertEquals(firstCustomer.getCustomerLastName(), customerDTO1.getLastName());
+        assertEquals(firstCustomer.getCustomerEmail(), customerDTO1.getEmail());
+        assertEquals(secondCustomer.getCustomerLastName(), customerDTO2.getLastName());
     }
 }

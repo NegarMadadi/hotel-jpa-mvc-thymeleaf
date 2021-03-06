@@ -37,6 +37,13 @@ public class Hotel {
         this.roomList = roomList;
     }
 
+    public Hotel(String hotelType, String hotelAddress, String hotelDescription, boolean available) {
+        this.hotelType = hotelType;
+        this.hotelAddress = hotelAddress;
+        this.hotelDescription = hotelDescription;
+        this.available = available;
+    }
+
     //this ===> set
     public Hotel(String hotelType, String hotelAddress, String hotelDescription) {
         /*
