@@ -13,8 +13,6 @@ public class HotelJpaMvcThymeleafApplication {
 		MyDataSource.getConnection();
 
 		SpringApplication.run(HotelJpaMvcThymeleafApplication.class, args);
-
-
 	}
 
 }

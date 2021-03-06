@@ -1,6 +1,7 @@
 package se.lexicon.GroupProject.hoteljpamvcthymleaf.dto;
 
 import se.lexicon.GroupProject.hoteljpamvcthymleaf.entity.Hotel;
+import se.lexicon.GroupProject.hoteljpamvcthymleaf.entity.Room;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -84,4 +85,5 @@ public class HotelDTO implements Serializable {
                 ", hotelDescription='" + hotelDescription + '\'' +
                 '}';
     }
+
 }
